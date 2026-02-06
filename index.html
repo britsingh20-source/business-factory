@@ -152,7 +152,16 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:none}
 <label>Upload Images</label>
 <input type="file" name="images" multiple accept="image/*">
 
-<button type="submit">Create Demo Webpage</button>
+<button type="submit" id="submitBtn">Create Demo Webpage</button>
+
+<div id="countdownBox" style="display:none;margin-top:15px;font-weight:600;color:#111">
+⏳ Creating your demo page… Please wait <span id="countdown">120</span> seconds
+</div>
+
+<div id="resultLinkBox" style="display:none;margin-top:15px">
+✅ Your page is ready:<br>
+<a id="resultLink" href="#" target="_blank" style="color:#2563eb;font-weight:700"></a>
+</div>
 
 </form>
 </div>
