@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Businessfactory Automation Zoom Meeting</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#f5f7fb;
+  color:#111;
+}
+
+/* HERO */
+
+.hero{
+  background:linear-gradient(135deg,#000428,#004e92);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
+}
+
+.hero h1{
+  font-size:34px;
+  margin-bottom:10px;
+}
+
+.brand{
+  font-size:18px;
+  opacity:0.9;
+}
+
+.date{
+  font-size:20px;
+  margin:15px 0;
+}
+
+/* PRICE BOX */
+
+.price-box{
+  background:white;
+  color:#111;
+  max-width:350px;
+  margin:25px auto;
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.old-price{
+  text-decoration:line-through;
+  color:red;
+  font-size:22px;
+}
+
+.new-price{
+  font-size:42px;
+  color:green;
+  font-weight:bold;
+}
+
+.pay-btn{
+  display:block;
+  margin-top:20px;
+  background:#25D366;
+  color:white;
+  padding:15px;
+  text-decoration:none;
+  border-radius:8px;
+  font-size:18px;
+}
+
+/* SECTIONS */
+
+.section{
+  padding:50px 20px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:25px;
+}
+
+.box{
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* SEATS */
+
+.seats{
+  text-align:center;
+  font-size:20px;
+  color:red;
+  font-weight:bold;
+}
+
+/* STICKY CTA */
+
+.sticky{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#111;
+  padding:10px;
+  text-align:center;
+}
+
+.sticky a{
+  background:#25D366;
+  color:white;
+  padding:12px 25px;
+  text-decoration:none;
+  border-radius:6px;
+  font-size:18px;
+}
+
+/* TIMER */
+
+#countdown{
+  font-size:20px;
+  margin-top:10px;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<div class="brand">Businessfactory Presents</div>
+
+<h1>Business Automation Live Zoom Meeting</h1>
+
+<div class="date">
+Feb 21 • Zoom Link After Payment
+</div>
+
+<div id="countdown"></div>
+
+<div class="price-box">
+<div class="old-price">₹10,000</div>
+<div class="new-price">₹999</div>
+
+<a href="upi://pay?pa=britetalks@okaxis&pn=Businessfactory&am=999&cu=INR"
+class="pay-btn">
+Pay via Google Pay / UPI
+</a>
+
+</div>
+
+<div class="seats">
+Only 10 Seats Available
+</div>
+
+</div>
+
+<!-- PROBLEM -->
+
+<div class="section">
+<h2>Stop Manual Work in Your Business</h2>
+
+<div class="box">
+No need to work daily on social media posting.
+</div>
+
+<div class="box">
+No need to follow up leads manually.
+</div>
+
+<div class="box">
+Automation handles everything for you.
+</div>
+</div>
+
+<!-- SYSTEM -->
+
+<div class="section">
+<h2>How The Automation Works</h2>
+
+<div class="box">
+Take 2–3 product photos daily.
+Submit through Gmail.
+</div>
+
+<div class="box">
+System creates a customised webpage automatically.
+</div>
+
+<div class="box">
+Link sent to customers with title & description.
+</div>
+</div>
+
+<!-- SOCIAL -->
+
+<div class="section">
+<h2>Social Media Fully Automated</h2>
+
+<div class="box">Auto video creation</div>
+<div class="box">YouTube auto upload</div>
+<div class="box">Instagram & Facebook posting</div>
+<div class="box">Auto title • description • hashtags</div>
+</div>
+
+<!-- AI -->
+
+<div class="section">
+<h2>AI Lead Conversion</h2>
+
+<div class="box">
+AI agent chats with customers automatically.
+</div>
+
+<div class="box">
+Lead follow-up done for you.
+</div>
+
+<div class="box">
+Converts enquiries into sales.
+</div>
+</div>
+
+<!-- BONUS -->
+
+<div class="section">
+<h2>Bonuses</h2>
+
+<div class="box">
+Free WhatsApp Chatbot Included
+</div>
+</div>
+
+<!-- DEMO -->
+
+<div class="section">
+<h2>Live Demo</h2>
+
+<div class="box">
+Construction & Interior Automation Example
+</div>
+</div>
+
+<!-- REFUND -->
+
+<div class="section">
+<h2>Refund Policy</h2>
+
+<div class="box">
+Yes — Refund Available if not satisfied.
+</div>
+</div>
+
+<!-- FINAL CTA -->
+
+<div class="section" style="text-align:center;">
+
+<h2>Reserve Your Seat Now</h2>
+
+<div class="price-box">
+<div class="old-price">₹10,000</div>
+<div class="new-price">₹999</div>
+
+<a href="upi://pay?pa=britetalks@okaxis&pn=Businessfactory&am=999&cu=INR"
+class="pay-btn">
+Join Zoom Meeting
+</a>
+</div>
+
+</div>
+
+<!-- STICKY BAR -->
+
+<div class="sticky">
+<a href="upi://pay?pa=britetalks@okaxis&pn=Businessfactory&am=999&cu=INR">
+Register Now ₹999
+</a>
+</div>
+
+<!-- COUNTDOWN -->
+
+<script>
+var countDownDate = new Date("Feb 21, 2026 19:00:00").getTime();
+
+var x = setInterval(function() {
+
+var now = new Date().getTime();
+var distance = countDownDate - now;
+
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("countdown").innerHTML =
+days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+if (distance < 0) {
+clearInterval(x);
+document.getElementById("countdown").innerHTML = "Event Started";
+}
+
+}, 1000);
+</script>
+
+</body>
+</html>
