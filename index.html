@@ -12,10 +12,39 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#020617;color:white;overflow-x:hidden}
+body{background:#020617;color:white;overflow-x:hidden;cursor:none}
 
-.section{padding:90px 20px;max-width:1100px;margin:auto}
-.section h2{text-align:center;font-size:34px;margin-bottom:40px}
+#particles-js{position:fixed;width:100%;height:100%;z-index:-2}
+.cursor{position:fixed;width:200px;height:200px;background:radial-gradient(circle,#facc15aa,transparent 70%);border-radius:50%;pointer-events:none;transform:translate(-50%,-50%);z-index:-1}
+
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:40px 20px}
+.hero video{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-3;filter:brightness(.35)}
+.hero h1{font-size:48px;max-width:900px;background:linear-gradient(90deg,#fff,#facc15,#fde68a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:20px}
+.brand{opacity:.9;margin-bottom:10px}
+.date{margin-bottom:20px}
+
+.price-card{background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);padding:40px;border-radius:22px;box-shadow:0 0 40px #ffd700;text-align:center}
+.old-price{text-decoration:line-through;font-size:24px;color:#111}
+.new-price{font-size:56px;font-weight:700;color:#111;margin:10px 0}
+.pay-btn{display:inline-block;padding:16px 30px;border-radius:12px;text-decoration:none;color:#111;background:white;font-weight:600;transition:.3s}
+.pay-btn:hover{transform:scale(1.08)}
+.seats{margin-top:10px;font-weight:600}
+
+.section{padding:90px 20px;max-width:1200px;margin:auto}
+.section h2{text-align:center;font-size:36px;margin-bottom:50px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.card{background:linear-gradient(145deg,#020617,#111827);padding:30px;border-radius:20px;transform-style:preserve-3d;transition:.4s;box-shadow:0 20px 40px rgba(0,0,0,.6)}
+.card:hover{transform:rotateY(12deg) rotateX(12deg) scale(1.05);box-shadow:0 30px 60px rgba(250,204,21,.4)}
+
+.offer-box{background:linear-gradient(145deg,#111827,#020617);border:1px solid #333;border-radius:20px;padding:40px;box-shadow:0 0 40px rgba(250,204,21,.2)}
+.offer-item{display:flex;justify-content:space-between;margin:12px 0;font-size:18px}
+.total{font-size:26px;font-weight:700;color:#facc15;margin-top:20px;text-align:center}
+
+.profile-container{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:50px}
+.profile-img{width:280px;border-radius:20px;border:3px solid #facc15;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.profile-content{max-width:600px;line-height:1.8}
+.profile-name{font-size:30px;margin-bottom:15px;background:linear-gradient(90deg,#facc15,#fde68a);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 
 .demo-box{background:#ffffff;color:#111;padding:25px;border-radius:18px;max-width:900px;margin:auto;box-shadow:0 10px 40px rgba(0,0,0,.4)}
 .demo-box input,.demo-box textarea,.demo-box button{width:100%;padding:10px;margin-top:8px;border:1px solid #ddd;border-radius:8px}
@@ -23,39 +52,98 @@ body{background:#020617;color:white;overflow-x:hidden}
 
 .countdown{font-weight:700;margin-top:15px;color:#111}
 .link-box{margin-top:15px;font-weight:600}
+
+.sticky{position:fixed;bottom:0;width:100%;background:#020617;padding:12px;text-align:center;border-top:1px solid #222}
+.sticky a{background:linear-gradient(90deg,#facc15,#fde68a);padding:14px 30px;border-radius:10px;text-decoration:none;color:#111;font-weight:600}
 </style>
 </head>
 
 <body>
 
+<div id="particles-js"></div>
+<div class="cursor" id="cursor"></div>
+
+<!-- HERO -->
+<section class="hero">
+<video autoplay muted loop>
+<source src="video.mp4" type="video/mp4">
+</video>
+<div class="brand">Businessfactory Presents</div>
+<h1 data-aos="zoom-in">Fully Automated Business System Live Zoom Training</h1>
+<div class="date" data-aos="fade-up">Feb 21 • Zoom Link After Payment</div>
+
+<div class="price-card" data-aos="flip-up">
+<div class="old-price">₹10,000</div>
+<div class="new-price">₹999</div>
+<a class="pay-btn" href="https://rzp.io/rzp/sevaYClT">Pay Now</a>
+<div class="seats">Only 10 Seats Left</div>
+</div>
+</section>
+
+<!-- FEATURES -->
 <section class="section">
-<h2>Live Automation Demo</h2>
+<h2 data-aos="fade-up">Automation Features</h2>
+<div class="grid">
+<div class="card" data-aos="fade-up">Auto Webpages from Product Photos</div>
+<div class="card" data-aos="fade-up" data-aos-delay="100">Customer Broadcast Automation</div>
+<div class="card" data-aos="fade-up" data-aos-delay="200">Social Media Video Posting</div>
+<div class="card" data-aos="fade-up" data-aos-delay="300">AI Lead Conversion Chat</div>
+</div>
+</section>
 
-<div class="demo-box">
+<!-- OFFER STACK -->
+<section class="section">
+<h2 data-aos="fade-up">Complete Automation Offer Stack</h2>
+<div class="offer-box" data-aos="zoom-in">
+<div class="offer-item"><span>Automation System Setup</span><span>₹9,999</span></div>
+<div class="offer-item"><span>WhatsApp Chatbot</span><span>₹4,999</span></div>
+<div class="offer-item"><span>Social Media Auto Poster</span><span>₹3,999</span></div>
+<div class="offer-item"><span>Lead Conversion AI Agent</span><span>₹5,999</span></div>
+<div class="offer-item"><span>Workflow Templates</span><span>₹2,999</span></div>
+<div class="total">Total Value ₹27,995 → Today ₹999</div>
+</div>
+</section>
 
-<iframe name="hiddenFrame" style="display:none;"></iframe>
+<!-- PROFILE -->
+<section class="section">
+<h2 data-aos="fade-up">Meet Your Host</h2>
+<div class="profile-container">
+<img src="profile (2).jpg" class="profile-img" data-aos="zoom-in">
+<div class="profile-content" data-aos="fade-left">
+<h3 class="profile-name">Bright Singh.S</h3>
+<p>Working on <b>100% Free Business Automation Systems</b> for the past 2 years simplifying automation for everyday businesses.</p>
+<p>Mission: Make automation as easy as <b>Gmail</b> & <b>WhatsApp</b>.</p>
+<p>Researching winning business formulas & practical AI systems.</p>
+<p><b>Automation & AI for Everyone.</b></p>
+</div>
+</div>
+</section>
 
-<form
- id="propertyForm"
- target="hiddenFrame"
- action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615-009ff9c40aa2"
- method="POST"
- enctype="multipart/form-data">
+<!-- DEMO -->
+<section class="section">
+<h2 data-aos="fade-up">Live Automation Demo</h2>
+
+<div class="demo-box" data-aos="zoom-in">
+
+<iframe name="hiddenFrame" style="display:none"></iframe>
+
+<form target="hiddenFrame" method="POST" enctype="multipart/form-data" id="propertyForm"
+ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615-009ff9c40aa2">
 
 <label>Property ID</label>
 <input name="id" placeholder="101" required>
 
 <label>Property Title</label>
-<input name="title" placeholder="01 Grand New 2BHK" required>
+<input name="title" placeholder="01 2 bhk villa" required>
 
 <label>Location</label>
-<input name="location" placeholder="Idigarai" required>
+<input name="location" placeholder="Saravanampatti" required>
 
 <label>Price</label>
-<input name="price" placeholder="47 Lakhs" required>
+<input name="price" placeholder="55 Lakhs" required>
 
 <label>Description</label>
-<textarea name="description" placeholder="2 BHK Villa description"></textarea>
+<textarea name="description" placeholder="Property description"></textarea>
 
 <label>Features</label>
 <input name="features" placeholder="Parking, Water">
@@ -63,14 +151,14 @@ body{background:#020617;color:white;overflow-x:hidden}
 <label>Upload Images</label>
 <input type="file" name="images" multiple accept="image/*">
 
-<button type="submit" id="submitBtn">Create Demo Webpage</button>
+<button type="submit">Create Demo Webpage</button>
 
 <div id="countdownBox" class="countdown" style="display:none">
 ⏳ Creating your demo page… <span id="time">120</span>s
 </div>
 
 <div id="linkBox" class="link-box" style="display:none">
-✅ Your page link: <br>
+✅ Your page link:<br>
 <a id="demoLink" href="#" target="_blank"></a>
 </div>
 
@@ -78,38 +166,52 @@ body{background:#020617;color:white;overflow-x:hidden}
 </div>
 </section>
 
+<div class="sticky">
+<a href="https://rzp.io/rzp/sevaYClT">Register ₹999</a>
+</div>
+
 <script>
-const form = document.getElementById("propertyForm");
-const countdownBox = document.getElementById("countdownBox");
-const timeEl = document.getElementById("time");
-const linkBox = document.getElementById("linkBox");
-const demoLink = document.getElementById("demoLink");
+particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#facc15"},size:{value:3},move:{enable:true,speed:2}}});
+AOS.init({duration:1000,once:true});
 
-form.addEventListener("submit", function(){
+document.addEventListener("mousemove",e=>{cursor.style.left=e.clientX+"px";cursor.style.top=e.clientY+"px"});
 
-  countdownBox.style.display = "block";
+const form=document.getElementById("propertyForm");
+const countdownBox=document.getElementById("countdownBox");
+const timeEl=document.getElementById("time");
+const linkBox=document.getElementById("linkBox");
+const demoLink=document.getElementById("demoLink");
 
-  let time = 120;
-  timeEl.innerText = time;
+form.addEventListener("submit",function(){
+ countdownBox.style.display="block";
+ let time=120;
+ timeEl.innerText=time;
+ const timer=setInterval(()=>{
+  time--; timeEl.innerText=time;
+  if(time<=0){
+   clearInterval(timer);
 
-  const timer = setInterval(()=>{
-    time--;
-    timeEl.innerText = time;
+   const id=form.id.value||"101";
+   const title=form.title.value||"";
+   const location=form.location.value||"";
 
-    if(time <= 0){
-      clearInterval(timer);
+   function slugify(text){
+     return text.toLowerCase().trim()
+       .replace(/[^a-z0-9 ]/g,"")
+       .replace(/\s+/g,"-");
+   }
 
-      /* DEMO LINK DISPLAY (STATIC FOR NOW) */
-      const propertyId = form.id.value || "101";
-      const link = "https://yourdomain.com/property/" + propertyId;
+   const slug=slugify(title)+"-"+slugify(location)+"-"+id+".html";
 
-      demoLink.href = link;
-      demoLink.innerText = link;
-      linkBox.style.display = "block";
-    }
+   const link=
+   "https://britsingh20-source.github.io/2-bhk-idigarai-45-lakhs/property/"
+   +slug;
 
-  },1000);
-
+   demoLink.href=link;
+   demoLink.innerText=link;
+   linkBox.style.display="block";
+  }
+ },1000);
 });
 </script>
 
