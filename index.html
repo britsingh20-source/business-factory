@@ -30,7 +30,7 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:none}
 .pay-btn:hover{transform:scale(1.08)}
 .seats{margin-top:10px;font-weight:600}
 
-.section{padding:90px 20px;max-width:1200px;margin:auto}
+.section{padding:90px 20px;max-width:1500px;margin:auto}
 .section h2{text-align:center;font-size:36px;margin-bottom:50px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
@@ -154,7 +154,7 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:none}
 <button type="submit">Create Demo Webpage</button>
 
 <div id="countdownBox" class="countdown" style="display:none">
-⏳ Creating your demo page… <span id="time">120</span>s
+⏳ Creating your demo page… <span id="time">150</span>s
 </div>
 
 <div id="linkBox" class="link-box" style="display:none">
@@ -188,7 +188,7 @@ const demoLink=document.getElementById("demoLink");
 
 form.addEventListener("submit",function(){
  countdownBox.style.display="block";
- let time=120;
+ let time=150;
  timeEl.innerText=time;
  const timer=setInterval(()=>{
   time--; timeEl.innerText=time;
