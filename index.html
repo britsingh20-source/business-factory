@@ -6,19 +6,9 @@
 <title>Businessfactory Automation Event</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js">
-
-/* GOLD CURSOR EFFECT */
-const cursor=document.getElementById('cursor');
-
-document.addEventListener('mousemove',e=>{
- cursor.style.left=e.clientX+'px';
- cursor.style.top=e.clientY+'px';
-});
-
-</script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
@@ -136,8 +126,7 @@ Bright Singh.S — Working on 100% Free Business Automation Systems for 2+ years
 <input name="price" placeholder="Price" required>
 
 <textarea name="description" placeholder="Property Description" rows="3" required></textarea>
-
-<input name="features" placeholder="Features (e.g. Parking, Gated Community)" required>
+<input name="features" placeholder="Features (Parking, Gated Community)" required>
 
 <input type="file" name="images" id="images" multiple accept="image/*" required>
 <div style="font-size:13px;color:#555">Upload exactly 6 photos (compulsory)</div>
@@ -146,8 +135,7 @@ Bright Singh.S — Working on 100% Free Business Automation Systems for 2+ years
 
 <div id="countdownBox" style="display:none;margin-top:10px;font-weight:700">
 ⏳ Creating your demo page… <span id="time">150</span>s
-
-<div id="demoLines" style="margin-top:12px;font-size:14px;font-weight:500;color:#333">
+<div id="demoLines" style="margin-top:12px;font-size:14px;color:#333">
 This is a demo web page we can customise to your idea
 </div>
 </div>
@@ -170,7 +158,16 @@ This is a demo web page we can customise to your idea
 </div>
 
 <script>
+
+/* PARTICLES */
 particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#facc15"},size:{value:3},move:{enable:true,speed:2}}});
+
+/* GOLD CURSOR */
+const cursor=document.getElementById('cursor');
+document.addEventListener('mousemove',e=>{
+ cursor.style.left=e.clientX+'px';
+ cursor.style.top=e.clientY+'px';
+});
 
 /* COUNTERS */
 document.querySelectorAll('.counter').forEach(c=>{
@@ -182,7 +179,7 @@ document.querySelectorAll('.counter').forEach(c=>{
  },20);
 });
 
-/* EXACT 6 IMAGE VALIDATION */
+/* IMAGE VALIDATION — EXACT 6 */
 document.getElementById('images').addEventListener('change',function(){
  if(this.files.length!==6){
   alert('Please upload exactly 6 photos');
@@ -234,10 +231,19 @@ form.addEventListener('submit',function(){
    const title=form.title.value||'';
    const location=form.location.value||'';
 
-   const slug=(title+'-'+location+'-'+id)
-    .toLowerCase()
-    .replace(/[^a-z0-9 ]/g,'')
-    .replace(/\s+/g,'-')+'.html';
+   /* WORKING SLUG LOGIC */
+   function slugify(text){
+     return text
+       .toLowerCase()
+       .trim()
+       .replace(/[^a-z0-9 ]/g,'')
+       .replace(/\s+/g,'-');
+   }
+
+   const slug=
+     slugify(title)+'-'+
+     slugify(location)+'-'+
+     id+'.html';
 
    const link='https://britsingh20-source.github.io/2-bhk-idigarai-45-lakhs/property/'+slug;
 
@@ -250,6 +256,7 @@ form.addEventListener('submit',function(){
   }
  },1000);
 });
+
 </script>
 
 </body>
