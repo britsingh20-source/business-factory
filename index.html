@@ -188,6 +188,24 @@ soundBtn.addEventListener('click',()=>{
   }
 
 });
+
+/* PAUSE VIDEO ON SCROLL AWAY */
+const bannerSection=document.querySelector('.banner');
+
+window.addEventListener('scroll',()=>{
+  const rect=bannerSection.getBoundingClientRect();
+
+  /* If banner not visible → pause */
+  if(rect.bottom<=0 || rect.top>=window.innerHeight){
+    bannerVideo.pause();
+  }
+  else{
+    /* Resume muted autoplay when back */
+    if(bannerVideo.paused){
+      bannerVideo.play();
+    }
+  }
+});
 </script>
 
 </body>
