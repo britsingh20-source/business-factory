@@ -172,6 +172,14 @@ Bright Singh.S — Working on 100% Free Business Automation Systems for 2+ years
 
 <div id="countdownBox" style="display:none;margin-top:10px;font-weight:700">
 ⏳ Creating your demo page… <span id="time">150</span>s
+
+<!-- VIDEO PLAYER DURING WAIT -->
+<div style="margin-top:14px;border-radius:12px;overflow:hidden">
+<video id="demoWaitVideo" width="100%" autoplay muted playsinline>
+<source src="demo-wait-video.mp4" type="video/mp4">
+</video>
+</div>
+
 <div id="demoLines" style="margin-top:12px;font-size:14px;color:#333">
 This is a demo web page we can customise to your idea
 </div>
@@ -246,6 +254,12 @@ const lines=[
 ];
 
 form.addEventListener('submit',function(){
+
+ const waitVideo=document.getElementById('demoWaitVideo');
+ if(waitVideo){
+   waitVideo.currentTime=0;
+   waitVideo.play();
+ }
 
  if(document.getElementById('images').files.length!==6){
   alert('Upload exactly 6 photos to continue');
