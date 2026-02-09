@@ -66,7 +66,7 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:auto}
 </div>
 </section>
 
-<!-- PRICING -->
+<!-- DUAL PRICING -->
 <section class="section">
 <h2>Choose Your Zoom Training</h2>
 <div class="pricing-grid">
@@ -86,7 +86,7 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:auto}
 <p>• Webpage Automation<br>
 • Social Posting Automation<br>
 • Lead Conversion Automation<br>
-• AI Follow‑up System<br><br>
+• AI Follow-up System<br><br>
 + Free WhatsApp Chatbot</p>
 <a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi">Join Zoom ₹999</a>
 </div>
@@ -94,7 +94,7 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:auto}
 </div>
 </section>
 
-<!-- KEEPING ALL OLD SECTIONS SAME -->
+<!-- FEATURES -->
 <section class="section">
 <h2>Automation Features</h2>
 <div class="grid">
@@ -105,6 +105,7 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:auto}
 </div>
 </section>
 
+<!-- COUNTERS -->
 <section class="section">
 <h2>Automation Impact</h2>
 <div class="counter-grid">
@@ -115,22 +116,161 @@ body{background:#020617;color:white;overflow-x:hidden;cursor:auto}
 </div>
 </section>
 
-<!-- DEMO + ALL LOGIC REMAINS UNCHANGED -->
+<!-- PROFILE -->
+<section class="section">
+<h2>Meet Your Host</h2>
+<img src="profile (2).jpg" style="width:260px;border-radius:16px;display:block;margin:auto">
+<p style="text-align:center;margin-top:20px">
+Bright Singh.S — Working on 100% Free Business Automation Systems for 2+ years simplifying AI for businesses.
+</p>
+</section>
+
+<!-- DEMO (YOUR ORIGINAL WORKING SYSTEM) -->
 <section class="section">
 <h2>Live Automation Demo</h2>
+
 <div class="demo-box">
-<p>Your full demo automation system remains exactly same below this section.</p>
+<iframe name="hiddenFrame" style="display:none"></iframe>
+
+<form target="hiddenFrame" method="POST" enctype="multipart/form-data" id="propertyForm"
+ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615-009ff9c40aa2">
+
+<input name="id" placeholder="Property ID (101)" required>
+<input name="title" placeholder="Property Title" required>
+<input name="location" placeholder="Location" required>
+<input name="price" placeholder="Price" required>
+
+<textarea name="description" placeholder="Property Description" rows="3" required></textarea>
+<input name="features" placeholder="Features (Parking, Gated Community)" required>
+
+<input type="file" name="images" id="images" multiple accept="image/*" required>
+<div style="font-size:13px;color:#555">Upload exactly 6 photos (compulsory)</div>
+
+<button type="submit">Create Demo Webpage</button>
+
+<div id="countdownBox" style="display:none;margin-top:10px;font-weight:700">
+⏳ Creating your demo page… <span id="time">150</span>s
+<div id="demoLines" style="margin-top:12px;font-size:14px;color:#333">
+This is a demo web page we can customise to your idea
+</div>
+</div>
+
+<div id="linkBox" style="display:none;margin-top:10px">
+<a id="demoLink" target="_blank"></a>
+<div style="font-size:13px">If webpage shows nothing wait 5 sec & refresh</div>
+</div>
+
+<div id="previewBox" class="preview-box">
+<iframe id="demoPreview"></iframe>
+</div>
+
+</form>
 </div>
 </section>
 
+<div class="sticky">
+<a href="https://rzp.io/rzp/5Jk0Hzmi">Register Advanced ₹999</a>
+</div>
+
 <script>
+
+/* PARTICLES */
 particlesJS("particles-js",{particles:{number:{value:80},color:{value:"#facc15"},size:{value:3},move:{enable:true,speed:2}}});
 
+/* GOLD CURSOR */
 const cursor=document.getElementById('cursor');
 document.addEventListener('mousemove',e=>{
  cursor.style.left=e.clientX+'px';
  cursor.style.top=e.clientY+'px';
 });
+
+/* COUNTERS */
+document.querySelectorAll('.counter').forEach(c=>{
+ let t=0,target=+c.dataset.target;
+ const i=setInterval(()=>{
+  t+=Math.ceil(target/100);
+  if(t>=target){t=target;clearInterval(i)}
+  c.innerText=t;
+ },20);
+});
+
+/* IMAGE VALIDATION */
+document.getElementById('images').addEventListener('change',function(){
+ if(this.files.length!==6){
+  alert('Please upload exactly 6 photos');
+  this.value='';
+ }
+});
+
+/* DEMO FLOW */
+const form=document.getElementById('propertyForm');
+const timeEl=document.getElementById('time');
+const linkBox=document.getElementById('linkBox');
+const demoLink=document.getElementById('demoLink');
+const preview=document.getElementById('demoPreview');
+const previewBox=document.getElementById('previewBox');
+const demoLines=document.getElementById('demoLines');
+
+const lines=[
+ 'This is a demo web page we can customise to your idea',
+ 'Webpage with subject & individual header photo will be forwarded to your customers through WhatsApp',
+ 'This webpage will get created as video with audio',
+ 'Title, description, hashtag for all social media',
+ 'Auto posting to all social media',
+ 'Automatic WhatsApp chatbot',
+ 'All in zero cost'
+];
+
+form.addEventListener('submit',function(){
+
+ if(document.getElementById('images').files.length!==6){
+  alert('Upload exactly 6 photos to continue');
+  return false;
+ }
+
+ document.getElementById('countdownBox').style.display='block';
+
+ let lineIndex=0;
+ setInterval(()=>{
+  lineIndex=(lineIndex+1)%lines.length;
+  demoLines.innerText=lines[lineIndex];
+ },4000);
+
+ let t=150;
+ const timer=setInterval(()=>{
+  t--; timeEl.innerText=t;
+  if(t<=0){
+   clearInterval(timer);
+
+   const id=form.id.value||'101';
+   const title=form.title.value||'';
+   const location=form.location.value||'';
+
+   function slugify(text){
+     return text
+       .toLowerCase()
+       .trim()
+       .replace(/[^a-z0-9 ]/g,'')
+       .replace(/\s+/g,'-');
+   }
+
+   const slug=
+     slugify(title)+'-'+
+     slugify(location)+'-'+
+     id+'.html';
+
+   const link='https://britsingh20-source.github.io/2-bhk-idigarai-45-lakhs/property/'+slug;
+
+   demoLink.href=link;
+   demoLink.innerText=link;
+   linkBox.style.display='block';
+
+   preview.src=link;
+   previewBox.style.display='block';
+  }
+ },1000);
+});
+
 </script>
 
 </body>
