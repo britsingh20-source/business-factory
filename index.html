@@ -13,12 +13,18 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 body{background:#020617;color:white;overflow-x:hidden;padding-bottom:120px}
 
-/* FLASH HEADER */
-.flash-bar{
-background:linear-gradient(90deg,#facc15,#fde68a);
-color:#111;text-align:center;
-padding:10px;font-weight:700;
-font-size:16px;
+/* FLASH TEXT ONLY */
+.flash-text{
+text-align:center;
+font-weight:700;
+font-size:18px;
+color:#facc15;
+padding:12px 0;
+animation:flash 1.2s infinite;
+}
+@keyframes flash{
+0%,100%{opacity:1}
+50%{opacity:.2}
 }
 
 /* PARTICLES + CURSOR */
@@ -138,8 +144,8 @@ text-decoration:none;color:#111;font-weight:600
 
 <body>
 
-<!-- FLASH HEADER -->
-<div class="flash-bar" id="flashText">
+<!-- FLASH TEXT -->
+<div class="flash-text" id="flashText">
 21st September
 </div>
 
@@ -253,8 +259,22 @@ Select Only 2 Photos For Demo
 
 <div id="countdownBox"
 style="display:none;margin-top:10px">
+
 ⏳ Creating your demo page…
 <span id="time">60</span>s
+
+<!-- WAIT VIDEO -->
+<video id="demoWaitVideo"
+width="100%"
+muted loop playsinline>
+<source src="demo-wait-video.mp4">
+</video>
+
+<button type="button"
+id="waitSoundToggle">
+🔊 Unmute Audio
+</button>
+
 </div>
 
 <div id="linkBox" style="display:none">
@@ -298,11 +318,14 @@ bannerVideo.muted?
 "🔇 Tap to Mute";
 };
 
-/* DEMO TIMER */
+/* DEMO TIMER + WAIT VIDEO PLAY */
 propertyForm.addEventListener("submit",e=>{
 e.preventDefault();
 
 countdownBox.style.display="block";
+
+/* FORCE PLAY WAIT VIDEO */
+demoWaitVideo.play();
 
 let t=60;
 
@@ -335,6 +358,16 @@ previewBox.style.display="block";
 }
 },1000);
 });
+
+/* WAIT VIDEO AUDIO */
+waitSoundToggle.onclick=()=>{
+demoWaitVideo.muted=!demoWaitVideo.muted;
+demoWaitVideo.play();
+waitSoundToggle.innerText=
+demoWaitVideo.muted?
+"🔊 Unmute Audio":
+"🔇 Mute Audio";
+};
 </script>
 
 </body>
