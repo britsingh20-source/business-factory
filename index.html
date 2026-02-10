@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,45 +6,100 @@
 <title>Businessfactory Automation Event</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<!-- Load particles after page -->
+<script defer src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
 body{background:#020617;color:white;overflow-x:hidden;padding-bottom:120px}
 
-#particles-js{position:fixed;width:100%;height:100%;z-index:-2}
+/* PARTICLES */
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-2
+}
 
 /* BANNER */
 .banner{position:relative;height:100vh}
-.banner video{position:absolute;width:100%;height:100%;object-fit:cover;filter:brightness(.35)}
-.banner-content{position:relative;z-index:2;text-align:center;top:40%}
-.banner h1{font-size:48px;background:linear-gradient(90deg,#fff,#facc15);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.banner video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(.35)
+}
+.banner-content{
+position:relative;
+z-index:2;
+text-align:center;
+top:40%
+}
+.banner h1{
+font-size:48px;
+background:linear-gradient(90deg,#fff,#facc15);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent
+}
 
 #soundToggle{
- position:absolute;
- bottom:40px;
- left:50%;
- transform:translateX(-50%);
- background:linear-gradient(90deg,#facc15,#fde68a);
- color:#111;
- border:none;
- padding:14px 26px;
- border-radius:40px;
- font-weight:700;
- cursor:pointer;
- z-index:5;
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+background:linear-gradient(90deg,#facc15,#fde68a);
+color:#111;
+border:none;
+padding:14px 26px;
+border-radius:40px;
+font-weight:700;
+cursor:pointer;
+z-index:5
 }
 
 /* SECTIONS */
 .section{padding:90px 20px;max-width:1200px;margin:auto}
 .section h2{text-align:center;font-size:36px;margin-bottom:50px}
 
-.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px}
-.price-card{background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);padding:40px;border-radius:22px;text-align:center}
-.price{font-size:48px;color:#111;font-weight:700}
-.pay-btn{display:inline-block;margin-top:15px;padding:14px 28px;background:white;color:#111;border-radius:10px;text-decoration:none;font-weight:600}
+/* PRICING */
+.pricing-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px
+}
 
-.demo-box{background:#fff;color:#111;padding:25px;border-radius:18px;max-width:700px;margin:auto}
+.price-card{
+background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);
+padding:40px;
+border-radius:22px;
+text-align:center
+}
+
+.price{font-size:48px;color:#111;font-weight:700}
+
+.pay-btn{
+display:inline-block;
+margin-top:15px;
+padding:14px 28px;
+background:white;
+color:#111;
+border-radius:10px;
+text-decoration:none;
+font-weight:600
+}
+
+/* DEMO FORM */
+.demo-box{
+background:#fff;
+color:#111;
+padding:25px;
+border-radius:18px;
+max-width:700px;
+margin:auto
+}
+
 .demo-box input,
 .demo-box textarea,
 .demo-box button{
@@ -53,20 +107,21 @@ width:100%;
 padding:12px;
 margin-top:10px;
 border:1px solid #ddd;
-border-radius:8px;
-font-size:14px;
+border-radius:8px
 }
 
 .demo-box button{
 background:#111;
 color:#fff;
 font-weight:600;
-cursor:pointer;
+cursor:pointer
 }
 
+/* PREVIEW */
 .preview-box{display:none;margin-top:20px}
 .preview-box iframe{width:100%;height:600px;border:none}
 
+/* STICKY */
 .sticky{
 position:fixed;
 bottom:0;
@@ -95,7 +150,8 @@ font-weight:600
 
 <!-- BANNER -->
 <section class="banner">
-<video id="bannerVideo" autoplay muted loop playsinline>
+
+<video id="bannerVideo" autoplay muted loop playsinline preload="none">
 <source src="banner-video.mp4" type="video/mp4">
 </video>
 
@@ -112,34 +168,40 @@ font-weight:600
 
 <div class="pricing-grid">
 
+<!-- 499 -->
 <div class="price-card">
 <h3>Starter Automation</h3>
 <div class="price">₹499</div>
-<p>Automatic Webpage Creation<br>WhatsApp Follow-up</p>
+<p>• Automated Landing Page</p>
+<p>• Lead Form Integration</p>
+<p>• WhatsApp Follow-up</p>
+<p>• Payment Link Setup</p>
 <a class="pay-btn" href="https://rzp.io/rzp/1Qb6vrBc">Join ₹499</a>
 </div>
 
+<!-- 999 -->
 <div class="price-card">
 <h3>Advanced Automation</h3>
 <div class="price">₹999</div>
-<p>4 Automations + AI Follow-up</p>
-<p style="color:#16a34a;font-weight:700">🎁 Free WhatsApp Chatbot</p>
+
+<p><b>Includes 4 Automations:</b></p>
+
+<p>1️⃣ Auto Website Generator</p>
+<p>2️⃣ WhatsApp AI Follow-up</p>
+<p>3️⃣ Lead Capture + CRM Sheet</p>
+<p>4️⃣ Payment + Order Automation</p>
+
+<p style="color:#16a34a;font-weight:700">
+🎁 Free WhatsApp Chatbot
+</p>
+
 <a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi">Join ₹999</a>
 </div>
 
 </div>
 </section>
 
-<!-- HOST -->
-<section class="section">
-<h2>Meet Your Host</h2>
-<img src="profile (2).jpg" style="width:260px;border-radius:16px;display:block;margin:auto">
-<p style="text-align:center;margin-top:20px">
-Bright Singh.S — 2+ years building free automation systems.
-</p>
-</section>
-
-<!-- DEMO FORM -->
+<!-- DEMO -->
 <section class="section">
 <h2>Live Automation Demo</h2>
 
@@ -156,24 +218,29 @@ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615
 <input name="id" placeholder="Property ID" required>
 <input name="title" placeholder="Title" required>
 <input name="location" placeholder="Location" required>
-
 <input name="price" placeholder="Price (₹)" required>
 
-<textarea name="description" placeholder="Property Description" rows="4" required></textarea>
+<textarea name="description" placeholder="Description" rows="4" required></textarea>
+<textarea name="features" placeholder="Features" rows="4" required></textarea>
 
-<textarea name="features" placeholder="Features (2 BHK, Parking, Borewell…)" rows="4" required></textarea>
-
-<input type="file" id="images" name="images" multiple required>
+<input type="file" name="images" multiple required>
 
 <button type="submit">Create Demo Webpage</button>
 
 <!-- COUNTDOWN -->
 <div id="countdownBox" style="display:none;margin-top:10px">
+
 ⏳ Creating… <span id="time">150</span>s
 
-<video width="100%" autoplay muted playsinline>
+<video id="demoWaitVideo" width="100%" autoplay loop playsinline>
 <source src="demo-wait-video.mp4">
 </video>
+
+<!-- AUDIO BUTTON -->
+<button type="button" id="waitSoundToggle" style="margin-top:10px">
+🔊 Unmute Audio
+</button>
+
 </div>
 
 <!-- RESULT -->
@@ -189,65 +256,66 @@ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615
 </div>
 </section>
 
-<!-- STICKY CTA -->
+<!-- STICKY -->
 <div class="sticky">
 <a href="https://rzp.io/rzp/1Qb6vrBc">Join ₹499</a>
 <a href="https://rzp.io/rzp/5Jk0Hzmi">Join ₹999</a>
 </div>
 
 <script>
-particlesJS("particles-js",{particles:{number:{value:80},size:{value:3}}});
-
-/* SOUND TOGGLE */
-const bannerVideo=document.getElementById('bannerVideo');
-const btn=document.getElementById('soundToggle');
-
-btn.onclick=()=>{
- if(bannerVideo.muted){
-  bannerVideo.muted=false;
-  btn.innerText='🔇 Tap to Mute';
- }else{
-  bannerVideo.muted=true;
-  btn.innerText='🔊 Tap for Sound';
- }
+/* PARTICLES LOAD AFTER PAGE */
+window.onload=()=>{
+particlesJS("particles-js",{particles:{number:{value:60},size:{value:3}}});
 };
 
-/* SCROLL PAUSE */
-window.addEventListener('scroll',()=>{
- const rect=document.querySelector('.banner').getBoundingClientRect();
- if(rect.bottom<=0) bannerVideo.pause();
- else bannerVideo.play();
-});
+/* BANNER SOUND */
+const bannerVideo=document.getElementById('bannerVideo');
+const soundBtn=document.getElementById('soundToggle');
 
-/* DEMO FLOW */
+soundBtn.onclick=()=>{
+bannerVideo.muted=!bannerVideo.muted;
+soundBtn.innerText=bannerVideo.muted?'🔊 Tap for Sound':'🔇 Tap to Mute';
+};
+
+/* DEMO SUBMIT */
 document.getElementById('propertyForm').addEventListener('submit',()=>{
 
- document.getElementById('countdownBox').style.display='block';
+document.getElementById('countdownBox').style.display='block';
 
- let t=150;
- const el=document.getElementById('time');
+let t=150;
+const el=document.getElementById('time');
+const id=document.querySelector('input[name="id"]').value;
 
- const id=document.querySelector('input[name="id"]').value;
+const timer=setInterval(()=>{
+t--; el.innerText=t;
 
- const timer=setInterval(()=>{
-  t--; el.innerText=t;
+if(t<=0){
+clearInterval(timer);
 
-  if(t<=0){
-   clearInterval(timer);
+const slug='demo-property-'+id+'.html';
+const link='https://britsingh20-source.github.io/2-bhk-idigarai-45-lakhs/property/'+slug;
 
-   const slug='demo-property-'+id+'.html';
-   const link='https://britsingh20-source.github.io/2-bhk-idigarai-45-lakhs/property/'+slug;
+document.getElementById('demoLink').href=link;
+document.getElementById('demoLink').innerText=link;
+document.getElementById('linkBox').style.display='block';
 
-   document.getElementById('demoLink').href=link;
-   document.getElementById('demoLink').innerText=link;
-   document.getElementById('linkBox').style.display='block';
-
-   document.getElementById('demoPreview').src=link;
-   document.getElementById('previewBox').style.display='block';
-  }
- },1000);
+document.getElementById('demoPreview').src=link;
+document.getElementById('previewBox').style.display='block';
+}
+},1000);
 
 });
+
+/* DEMO WAIT AUDIO */
+const waitVideo=document.getElementById('demoWaitVideo');
+const waitBtn=document.getElementById('waitSoundToggle');
+
+waitVideo.muted=true;
+
+waitBtn.onclick=()=>{
+waitVideo.muted=!waitVideo.muted;
+waitBtn.innerText=waitVideo.muted?'🔊 Unmute Audio':'🔇 Mute Audio';
+};
 </script>
 
 </body>
