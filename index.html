@@ -131,9 +131,13 @@ text-decoration:none;color:#111;font-weight:600
 <div class="price-card">
 <h3>Starter Automation Training</h3>
 <div class="price">₹499</div>
-<p>• Automatic Webpage Creation<br>
-• Automatic WhatsApp Follow-up</p>
-<a class="pay-btn" href="https://rzp.io/rzp/1Qb6vrBc">Join Zoom ₹499</a>
+<p>
+• Automatic Webpage Creation<br>
+• Automatic WhatsApp Follow-up
+</p>
+<a class="pay-btn" href="https://rzp.io/rzp/1Qb6vrBc">
+Join Zoom ₹499
+</a>
 </div>
 
 <div class="price-card">
@@ -152,7 +156,9 @@ For All Social Media<br>
 🎁 Add-on: WhatsApp Chatbot Included
 </p>
 
-<a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi">Join Zoom ₹999</a>
+<a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi">
+Join Zoom ₹999
+</a>
 </div>
 
 </div>
@@ -161,7 +167,9 @@ For All Social Media<br>
 <!-- PROFILE -->
 <section class="section">
 <h2>Meet Your Host</h2>
+
 <img src="profile (2).jpg" class="profile-img">
+
 <p style="text-align:center;margin-top:20px">
 Bright Singh.S — AI & Business Automation Specialist.
 </p>
@@ -199,7 +207,9 @@ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615
 <source src="demo-wait-video.mp4">
 </video>
 
-<button type="button" id="waitSoundToggle">🔊 Unmute Audio</button>
+<button type="button" id="waitSoundToggle">
+🔊 Unmute Audio
+</button>
 </div>
 
 <div id="linkBox" style="display:none">
@@ -231,13 +241,14 @@ cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
 
-/* SOUND */
+/* SOUND TOGGLE */
 const bannerVideo=document.getElementById("bannerVideo");
 const soundBtn=document.getElementById("soundToggle");
 
 soundBtn.onclick=()=>{
 bannerVideo.muted=!bannerVideo.muted;
-soundBtn.innerText=bannerVideo.muted?'🔊 Tap for Sound':'🔇 Tap to Mute';
+soundBtn.innerText=bannerVideo.muted?
+"🔊 Tap for Sound":"🔇 Tap to Mute";
 };
 
 /* SCROLL PAUSE */
@@ -251,7 +262,7 @@ bannerVideo.play();
 }
 });
 
-/* DEMO SUBMIT + REAL SLUG */
+/* DEMO SUBMIT + SLUG (TITLE + LOCATION + ID) */
 document.getElementById("propertyForm")
 .addEventListener("submit",()=>{
 
@@ -262,13 +273,21 @@ const el=document.getElementById("time");
 
 const id=document.querySelector('[name="id"]').value;
 const title=document.querySelector('[name="title"]').value;
+const location=document.querySelector('[name="location"]').value;
 
-/* SLUG BUILDER */
+/* CLEAN TITLE */
 const slugTitle=title.toLowerCase()
 .replace(/[^a-z0-9]+/g,'-')
 .replace(/^-+|-+$/g,'');
 
-const slug=slugTitle+"-"+id+".html";
+/* CLEAN LOCATION */
+const slugLocation=location.toLowerCase()
+.replace(/[^a-z0-9]+/g,'-')
+.replace(/^-+|-+$/g,'');
+
+/* FINAL SLUG */
+const slug=
+slugTitle+"-"+slugLocation+"-"+id+".html";
 
 const timer=setInterval(()=>{
 t--; el.innerText=t;
@@ -287,6 +306,7 @@ document.getElementById("linkBox").style.display="block";
 document.getElementById("demoPreview").src=link;
 document.getElementById("previewBox").style.display="block";
 }
+
 },1000);
 
 });
@@ -297,7 +317,8 @@ const waitBtn=document.getElementById("waitSoundToggle");
 
 waitBtn.onclick=()=>{
 waitVideo.muted=!waitVideo.muted;
-waitBtn.innerText=waitVideo.muted?'🔊 Unmute Audio':'🔇 Mute Audio';
+waitBtn.innerText=
+waitVideo.muted?"🔊 Unmute Audio":"🔇 Mute Audio";
 };
 </script>
 
