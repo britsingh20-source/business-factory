@@ -331,11 +331,14 @@ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615
 <input 
   type="text" 
   name="id" 
-  placeholder="Enter Name first 3 letters + Numbers 1-1000"
-  pattern="[A-Za-z]{3,}[0-9]*"
-  title="Name must contain at least 3 letters, numbers optional"
+  id="idInput"
+  placeholder="Enter name first 3 letters + numbers 1-1000"
+  pattern="[a-z]{3,}[0-9]*"
+  title="Name must contain at least 3 lowercase letters, numbers optional"
+  oninput="this.value = this.value.toLowerCase()"
   required
 >
+
 
 <input name="title" placeholder="Product Title" required>
 <input name="location" placeholder="Location" required>
