@@ -49,28 +49,6 @@ font-weight:700;cursor:pointer;
 box-shadow:0 0 20px #facc15;z-index:5
 }
 
-/* PRICING */
-.pricing-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;margin-top:40px
-}
-.price-card{
-background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);
-padding:40px;border-radius:22px;
-box-shadow:0 0 40px #ffd700;text-align:center
-}
-.price{font-size:48px;color:#111;font-weight:700}
-.pay-btn{
-display:inline-block;margin-top:15px;
-padding:14px 28px;background:white;
-color:#111;border-radius:10px;
-text-decoration:none;font-weight:600
-}
-
-/* PROFILE */
-.profile-img{width:260px;border-radius:16px;display:block;margin:auto}
-
 /* DEMO */
 .demo-box{background:#fff;color:#111;padding:25px;border-radius:18px}
 .demo-box input,.demo-box textarea,.demo-box button{
@@ -79,19 +57,11 @@ border:1px solid #ddd;border-radius:8px
 }
 .demo-box button{background:#111;color:#fff}
 
-/* MOBILE FILE INPUT FIX */
+/* FILE INPUT FIX */
 input[type="file"]{
-position:relative;
-z-index:10;
-background:white;
-cursor:pointer;
+position:relative;z-index:10;background:white;cursor:pointer;
 }
-
-#fileCount{
-margin-top:6px;
-font-size:14px;
-color:#16a34a;
-}
+#fileCount{margin-top:6px;font-size:14px;color:#16a34a}
 
 /* PREVIEW */
 .preview-box{
@@ -99,19 +69,6 @@ display:none;margin-top:25px;
 border:2px solid #e5e7eb;border-radius:12px;overflow:hidden
 }
 .preview-box iframe{width:100%;height:600px;border:none}
-
-/* STICKY */
-.sticky{
-position:fixed;bottom:0;width:100%;
-background:#020617;padding:12px;
-display:flex;justify-content:center;
-gap:14px;flex-wrap:wrap;z-index:9999
-}
-.sticky a{
-background:linear-gradient(90deg,#facc15,#fde68a);
-padding:14px 26px;border-radius:10px;
-text-decoration:none;color:#111;font-weight:600
-}
 </style>
 </head>
 
@@ -134,59 +91,6 @@ text-decoration:none;color:#111;font-weight:600
 <button id="soundToggle">🔊 Tap for Sound</button>
 </section>
 
-<!-- PRICING -->
-<section class="section">
-<h2>Choose Your Zoom Training</h2>
-
-<div class="pricing-grid">
-
-<div class="price-card">
-<h3>Starter Automation Training</h3>
-<div class="price">₹499</div>
-<p>
-• Automatic Webpage Creation<br>
-• Automatic WhatsApp Follow-up
-</p>
-<a class="pay-btn" href="https://rzp.io/rzp/1Qb6vrBc">
-Join Zoom ₹499
-</a>
-</div>
-
-<div class="price-card">
-<h3>Advanced Automation Training</h3>
-<div class="price">₹999</div>
-
-<p>
-• Automatic Webpage Creation<br>
-• Automatic WhatsApp Follow-up<br>
-• Automatic Title & Description Creation<br>
-For All Social Media<br>
-• Automatic Posting Across Social Media
-</p>
-
-<p style="color:#16a34a;font-weight:700">
-🎁 Add-on: WhatsApp Chatbot Included
-</p>
-
-<a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi">
-Join Zoom ₹999
-</a>
-</div>
-
-</div>
-</section>
-
-<!-- PROFILE -->
-<section class="section">
-<h2>Meet Your Host</h2>
-
-<img src="profile (2).jpg" class="profile-img">
-
-<p style="text-align:center;margin-top:20px">
-Bright Singh.S — AI & Business Automation Specialist.
-</p>
-</section>
-
 <!-- DEMO -->
 <section class="section">
 <h2>Live Automation Demo</h2>
@@ -201,7 +105,14 @@ enctype="multipart/form-data"
 id="propertyForm"
 action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615-009ff9c40aa2">
 
-<input name="id" placeholder="Property ID" required>
+<!-- PROPERTY ID 1–1000 -->
+<input type="number"
+name="id"
+placeholder="Property ID (1–1000)"
+min="1"
+max="1000"
+required>
+
 <input name="title" placeholder="Property Title" required>
 <input name="location" placeholder="Location" required>
 <input name="price" placeholder="Price" required>
@@ -209,6 +120,7 @@ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615
 <textarea name="description" placeholder="Description" required></textarea>
 <input name="features" placeholder="Features" required>
 
+<!-- EXACT 2 PHOTOS -->
 <input type="file"
 name="images"
 id="images"
@@ -216,12 +128,13 @@ multiple
 accept="image/*"
 required>
 
-<div id="fileCount">No photos selected</div>
+<div id="fileCount">Select exactly 2 photos</div>
 
 <button type="submit">Create Demo Webpage</button>
 
+<!-- COUNTDOWN 60s -->
 <div id="countdownBox" style="display:none;margin-top:10px">
-⏳ Creating your demo page… <span id="time">150</span>s
+⏳ Creating your demo page… <span id="time">60</span>s
 
 <video id="demoWaitVideo" width="100%" autoplay loop muted playsinline>
 <source src="demo-wait-video.mp4">
@@ -244,12 +157,6 @@ required>
 </div>
 </section>
 
-<!-- STICKY -->
-<div class="sticky">
-<a href="https://rzp.io/rzp/1Qb6vrBc">Join ₹499</a>
-<a href="https://rzp.io/rzp/5Jk0Hzmi">Join ₹999</a>
-</div>
-
 <script>
 /* PARTICLES */
 particlesJS("particles-js",{particles:{number:{value:80},size:{value:3}}});
@@ -263,12 +170,8 @@ cursor.style.top=e.clientY+"px";
 
 /* SOUND */
 const bannerVideo=document.getElementById("bannerVideo");
-const soundBtn=document.getElementById("soundToggle");
-
-soundBtn.onclick=()=>{
+document.getElementById("soundToggle").onclick=()=>{
 bannerVideo.muted=!bannerVideo.muted;
-soundBtn.innerText=bannerVideo.muted?
-"🔊 Tap for Sound":"🔇 Tap to Mute";
 };
 
 /* SCROLL PAUSE */
@@ -282,7 +185,7 @@ bannerVideo.play();
 }
 });
 
-/* MOBILE IMAGE FEEDBACK */
+/* EXACT 2 PHOTO VALIDATION */
 const fileInput=document.getElementById("images");
 const fileCount=document.getElementById("fileCount");
 
@@ -290,36 +193,33 @@ fileInput.addEventListener("change",()=>{
 
 const count=fileInput.files.length;
 
-if(count===0){
-fileCount.innerText="No photos selected";
-fileCount.style.color="#16a34a";
-}
-else{
-fileCount.innerText=count+" photo(s) selected";
-fileCount.style.color="#2563eb";
+if(count!==2){
+alert("Please select exactly 2 photos");
+fileInput.value="";
+fileCount.innerText="Select exactly 2 photos";
+fileCount.style.color="red";
+return;
 }
 
-if(count>6){
-alert("Upload maximum 6 photos");
-fileInput.value="";
-fileCount.innerText="No photos selected";
-}
+fileCount.innerText="2 photos selected ✓";
+fileCount.style.color="#16a34a";
 
 });
 
-/* DEMO SUBMIT + SLUG */
+/* DEMO SUBMIT */
 document.getElementById("propertyForm")
 .addEventListener("submit",()=>{
 
 document.getElementById("countdownBox").style.display="block";
 
-let t=150;
+let t=60;
 const el=document.getElementById("time");
 
 const id=document.querySelector('[name="id"]').value;
 const title=document.querySelector('[name="title"]').value;
 const location=document.querySelector('[name="location"]').value;
 
+/* SLUG BUILDER */
 const slugTitle=title.toLowerCase()
 .replace(/[^a-z0-9]+/g,'-')
 .replace(/^-+|-+$/g,'');
@@ -328,7 +228,8 @@ const slugLocation=location.toLowerCase()
 .replace(/[^a-z0-9]+/g,'-')
 .replace(/^-+|-+$/g,'');
 
-const slug=slugTitle+"-"+slugLocation+"-"+id+".html";
+const slug=
+slugTitle+"-"+slugLocation+"-"+id+".html";
 
 const timer=setInterval(()=>{
 t--; el.innerText=t;
@@ -354,12 +255,8 @@ document.getElementById("previewBox").style.display="block";
 
 /* WAIT VIDEO AUDIO */
 const waitVideo=document.getElementById("demoWaitVideo");
-const waitBtn=document.getElementById("waitSoundToggle");
-
-waitBtn.onclick=()=>{
+document.getElementById("waitSoundToggle").onclick=()=>{
 waitVideo.muted=!waitVideo.muted;
-waitBtn.innerText=
-waitVideo.muted?"🔊 Unmute Audio":"🔇 Mute Audio";
 };
 </script>
 
