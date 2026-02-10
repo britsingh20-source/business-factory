@@ -27,14 +27,8 @@ animation:flash 1.2s infinite;
 50%{opacity:.2}
 }
 
-/* PARTICLES + CURSOR */
+/* PARTICLES */
 #particles-js{position:fixed;width:100%;height:100%;z-index:-2}
-.cursor{
-position:fixed;width:200px;height:200px;
-background:radial-gradient(circle,#facc15aa,transparent 70%);
-border-radius:50%;pointer-events:none;
-transform:translate(-50%,-50%);z-index:-1
-}
 
 /* SECTIONS */
 .section{padding:90px 20px;max-width:1200px;margin:auto}
@@ -68,7 +62,7 @@ box-shadow:0 0 20px #facc15;z-index:5
 .pricing-grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px;margin-top:40px
+gap:30px
 }
 .price-card{
 background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);
@@ -76,12 +70,6 @@ padding:40px;border-radius:22px;
 box-shadow:0 0 40px #ffd700;text-align:center
 }
 .price{font-size:48px;color:#111;font-weight:700}
-.pay-btn{
-display:inline-block;margin-top:15px;
-padding:14px 28px;background:white;
-color:#111;border-radius:10px;
-text-decoration:none;font-weight:600
-}
 
 /* COURSE GRID */
 .grid{
@@ -132,7 +120,7 @@ border:2px solid #e5e7eb;border-radius:12px;overflow:hidden
 position:fixed;bottom:0;width:100%;
 background:#020617;padding:12px;
 display:flex;justify-content:center;
-gap:14px;flex-wrap:wrap;z-index:9999
+gap:14px;flex-wrap:wrap
 }
 .sticky a{
 background:linear-gradient(90deg,#facc15,#fde68a);
@@ -150,7 +138,6 @@ text-decoration:none;color:#111;font-weight:600
 </div>
 
 <div id="particles-js"></div>
-<div class="cursor" id="cursor"></div>
 
 <!-- BANNER -->
 <section class="banner">
@@ -175,27 +162,19 @@ text-decoration:none;color:#111;font-weight:600
 <div class="price-card">
 <h3>Starter Automation Training</h3>
 <div class="price">₹499</div>
-<p>
-• Automatic Webpage Creation<br>
-• Automatic WhatsApp Follow-up
-</p>
-<a class="pay-btn">Join Zoom ₹499</a>
+<p>Automatic Webpage Creation<br>
+Automatic WhatsApp Follow-up</p>
 </div>
 
 <div class="price-card">
 <h3>Advanced Automation Training</h3>
 <div class="price">₹999</div>
 <p>
-• Automatic Webpage Creation<br>
-• Automatic WhatsApp Follow-up<br>
-• Automatic Title & Description Creation<br>
-For All Social Media<br>
-• Automatic Posting Across Social Media
+Automatic Webpage Creation<br>
+Automatic WhatsApp Follow-up<br>
+Automatic Title & Description Creation<br>
+Automatic Posting Across Social Media
 </p>
-<p style="color:#16a34a;font-weight:700">
-🎁 Add-on: WhatsApp Chatbot Included
-</p>
-<a class="pay-btn">Join Zoom ₹999</a>
 </div>
 
 </div>
@@ -232,7 +211,15 @@ Bright Singh.S — 2+ Years Building AI Automation Systems.
 
 <div class="demo-box">
 
-<form id="propertyForm">
+<!-- HIDDEN IFRAME FOR SUBMISSION -->
+<iframe name="hiddenFrame" style="display:none"></iframe>
+
+<form
+target="hiddenFrame"
+method="POST"
+enctype="multipart/form-data"
+id="propertyForm"
+action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615-009ff9c40aa2">
 
 <input type="number" name="id"
 min="1" max="1000"
@@ -248,14 +235,16 @@ placeholder="Description" required></textarea>
 <input name="features" placeholder="Features" required>
 
 <input type="file"
-id="images"
+name="images"
 multiple accept="image/*" required>
 
 <div class="photo-note">
 Select Only 2 Photos For Demo
 </div>
 
-<button type="submit">Create Demo Webpage</button>
+<button type="submit">
+Create Demo Webpage
+</button>
 
 <div id="countdownBox"
 style="display:none;margin-top:10px">
@@ -263,10 +252,8 @@ style="display:none;margin-top:10px">
 ⏳ Creating your demo page…
 <span id="time">60</span>s
 
-<!-- WAIT VIDEO -->
 <video id="demoWaitVideo"
-width="100%"
-muted loop playsinline>
+width="100%" muted loop playsinline>
 <source src="demo-wait-video.mp4">
 </video>
 
@@ -296,6 +283,8 @@ id="waitSoundToggle">
 </div>
 
 <script>
+particlesJS("particles-js",{particles:{number:{value:80}}});
+
 /* FLASH ROTATION */
 const flashItems=[
 "21st September",
@@ -318,13 +307,10 @@ bannerVideo.muted?
 "🔇 Tap to Mute";
 };
 
-/* DEMO TIMER + WAIT VIDEO PLAY */
-propertyForm.addEventListener("submit",e=>{
-e.preventDefault();
+/* FORM SUBMIT */
+propertyForm.addEventListener("submit",()=>{
 
 countdownBox.style.display="block";
-
-/* FORCE PLAY WAIT VIDEO */
 demoWaitVideo.play();
 
 let t=60;
@@ -356,7 +342,9 @@ linkBox.style.display="block";
 demoPreview.src=link;
 previewBox.style.display="block";
 }
+
 },1000);
+
 });
 
 /* WAIT VIDEO AUDIO */
