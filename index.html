@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,13 +56,11 @@ display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;margin-top:40px
 }
-
 .price-card{
 background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);
 padding:40px;border-radius:22px;
 box-shadow:0 0 40px #ffd700;text-align:center
 }
-
 .price{font-size:48px;color:#111;font-weight:700}
 .pay-btn{
 display:inline-block;margin-top:15px;
@@ -81,6 +80,21 @@ border:1px solid #ddd;border-radius:8px
 }
 .demo-box button{background:#111;color:#fff}
 
+/* MOBILE FILE INPUT FIX */
+input[type="file"]{
+position:relative;
+z-index:10;
+background:white;
+cursor:pointer;
+}
+
+#fileCount{
+margin-top:6px;
+font-size:14px;
+color:#16a34a;
+}
+
+/* PREVIEW */
 .preview-box{
 display:none;margin-top:25px;
 border:2px solid #e5e7eb;border-radius:12px;overflow:hidden
@@ -195,7 +209,15 @@ action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615
 
 <textarea name="description" placeholder="Description" required></textarea>
 <input name="features" placeholder="Features" required>
-<input type="file" name="images" multiple required>
+
+<input type="file"
+name="images"
+id="images"
+multiple
+accept="image/*"
+required>
+
+<div id="fileCount">No photos selected</div>
 
 <button type="submit">Create Demo Webpage</button>
 
@@ -240,7 +262,7 @@ cursor.style.left=e.clientX+"px";
 cursor.style.top=e.clientY+"px";
 });
 
-/* SOUND TOGGLE */
+/* SOUND */
 const bannerVideo=document.getElementById("bannerVideo");
 const soundBtn=document.getElementById("soundToggle");
 
@@ -261,7 +283,32 @@ bannerVideo.play();
 }
 });
 
-/* DEMO SUBMIT + SLUG (TITLE + LOCATION + ID) */
+/* MOBILE IMAGE FEEDBACK */
+const fileInput=document.getElementById("images");
+const fileCount=document.getElementById("fileCount");
+
+fileInput.addEventListener("change",()=>{
+
+const count=fileInput.files.length;
+
+if(count===0){
+fileCount.innerText="No photos selected";
+fileCount.style.color="#16a34a";
+}
+else{
+fileCount.innerText=count+" photo(s) selected";
+fileCount.style.color="#2563eb";
+}
+
+if(count>6){
+alert("Upload maximum 6 photos");
+fileInput.value="";
+fileCount.innerText="No photos selected";
+}
+
+});
+
+/* DEMO SUBMIT + SLUG */
 document.getElementById("propertyForm")
 .addEventListener("submit",()=>{
 
@@ -274,19 +321,15 @@ const id=document.querySelector('[name="id"]').value;
 const title=document.querySelector('[name="title"]').value;
 const location=document.querySelector('[name="location"]').value;
 
-/* CLEAN TITLE */
 const slugTitle=title.toLowerCase()
 .replace(/[^a-z0-9]+/g,'-')
 .replace(/^-+|-+$/g,'');
 
-/* CLEAN LOCATION */
 const slugLocation=location.toLowerCase()
 .replace(/[^a-z0-9]+/g,'-')
 .replace(/^-+|-+$/g,'');
 
-/* FINAL SLUG */
-const slug=
-slugTitle+"-"+slugLocation+"-"+id+".html";
+const slug=slugTitle+"-"+slugLocation+"-"+id+".html";
 
 const timer=setInterval(()=>{
 t--; el.innerText=t;
