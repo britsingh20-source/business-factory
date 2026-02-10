@@ -6,10 +6,8 @@
 
 <!-- 🔒 MOBILE UI LOCK -->
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-minimum-scale=1.0,
+content="width=device-width, initial-scale=1.0,
+maximum-scale=1.0, minimum-scale=1.0,
 user-scalable=no">
 
 <title>Businessfactory Automation Event</title>
@@ -24,13 +22,13 @@ body{
 background:#020617;
 color:white;
 overflow-x:hidden;
-padding-bottom:120px;
+padding-bottom:120px
 }
 
-/* MOBILE SCROLL LOCK */
+/* MOBILE TOUCH LOCK */
 html,body{
 touch-action:pan-y;
-overscroll-behavior:none;
+overscroll-behavior:none
 }
 
 /* Prevent iOS zoom */
@@ -139,6 +137,31 @@ font-weight:700;
 box-shadow:0 0 20px #fff;
 }
 
+/* COURSE GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px
+}
+.card{
+background:#111827;
+padding:30px;
+border-radius:18px;
+transition:.4s
+}
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px #facc15
+}
+
+/* PROFILE */
+.profile-img{
+width:260px;
+border-radius:16px;
+display:block;
+margin:auto
+}
+
 /* DEMO */
 .demo-box{
 background:#fff;
@@ -171,6 +194,7 @@ color:#92400e;
 text-align:center;
 }
 
+/* PREVIEW */
 .preview-box{
 display:none;
 margin-top:25px;
@@ -209,6 +233,7 @@ font-weight:600
 
 <body>
 
+<!-- FLASH -->
 <div class="flash-text" id="flashText">21st February</div>
 <div id="particles-js"></div>
 
@@ -225,6 +250,56 @@ font-weight:600
 <button id="soundToggle">🔊 Tap for Sound</button>
 </section>
 
+<!-- PRICING -->
+<section class="section">
+<h2>Choose Your Zoom Training</h2>
+
+<div class="pricing-grid">
+
+<div class="price-card">
+<h3>Starter Automation Training</h3>
+<div class="price">₹499</div>
+<p>Automatic Webpage Creation<br>Automatic WhatsApp Follow-up</p>
+<a class="pay-btn" href="https://rzp.io/rzp/1Qb6vrBc" target="_blank">Pay ₹499</a>
+</div>
+
+<div class="price-card">
+<h3>Advanced Automation Training</h3>
+<div class="price">₹999</div>
+<p>
+Automatic Webpage Creation<br>
+Automatic WhatsApp Follow-up<br>
+Automatic Title & Description Creation<br>
+Automatic Posting Across Social Media
+</p>
+<a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi" target="_blank">Pay ₹999</a>
+</div>
+
+</div>
+</section>
+
+<!-- COURSE -->
+<section class="section">
+<h2>What You’ll Learn</h2>
+<div class="grid">
+<div class="card">Business Automation Foundations</div>
+<div class="card">Lead Generation Systems</div>
+<div class="card">Auto Content Engines</div>
+<div class="card">AI Conversion Systems</div>
+<div class="card">WhatsApp & Web Automation</div>
+<div class="card">Agency Scaling Blueprint</div>
+</div>
+</section>
+
+<!-- PROFILE -->
+<section class="section">
+<h2>Meet Your Host</h2>
+<img src="profile (2).jpg" class="profile-img">
+<p style="text-align:center;margin-top:20px">
+Bright Singh.S — 2+ Years Building AI Automation Systems.
+</p>
+</section>
+
 <!-- DEMO -->
 <section class="section">
 <h2>Live Automation Demo</h2>
@@ -233,9 +308,7 @@ font-weight:600
 
 <iframe name="hiddenFrame" style="display:none"></iframe>
 
-<form
-target="hiddenFrame"
-method="POST"
+<form target="hiddenFrame" method="POST"
 enctype="multipart/form-data"
 id="propertyForm"
 action="https://bright-n8n.cgvxor.easypanel.host/webhook/ee693754-543a-435c-9615-009ff9c40aa2">
@@ -252,23 +325,25 @@ placeholder="Description" required></textarea>
 
 <input name="features" placeholder="Features" required>
 
-<!-- 📸 IMAGE INPUT -->
-<input type="file"
-id="imageInput"
-name="images"
-multiple
-accept="image/*"
-required>
+<!-- 📸 EXACTLY 4 -->
+<input type="file" id="imageInput"
+name="images" multiple accept="image/*" required>
 
-<div class="photo-note">
-Select Exactly 4 Photos
-</div>
+<div class="photo-note">Select Exactly 4 Photos</div>
 
 <button type="submit">Create Demo Webpage</button>
 
 <div id="countdownBox" style="display:none;margin-top:10px">
-⏳ Creating your demo page…
-<span id="time">120</span>s
+⏳ Creating your demo page… <span id="time">120</span>s
+
+<video id="demoWaitVideo"
+width="100%" muted loop playsinline>
+<source src="demo-wait-video.mp4">
+</video>
+
+<button type="button" id="waitSoundToggle">
+🔊 Unmute Audio
+</button>
 </div>
 
 <div id="linkBox" style="display:none">
@@ -283,6 +358,12 @@ Select Exactly 4 Photos
 </div>
 </section>
 
+<!-- STICKY -->
+<div class="sticky">
+<a href="https://rzp.io/rzp/1Qb6vrBc" target="_blank">Join ₹499</a>
+<a href="https://rzp.io/rzp/5Jk0Hzmi" target="_blank">Join ₹999</a>
+</div>
+
 <script>
 
 /* PARTICLES */
@@ -293,26 +374,25 @@ soundToggle.onclick=()=>{
 bannerVideo.muted=!bannerVideo.muted;
 };
 
-/* 📸 IMAGE VALIDATION — EXACTLY 4 */
+/* 📸 EXACTLY 4 VALIDATION */
 imageInput.addEventListener("change",function(){
-
-if(this.files.length !== 4){
+if(this.files.length!==4){
 alert("Please select exactly 4 images.");
 this.value="";
 }
-
 });
 
 /* FORM SUBMIT */
 propertyForm.addEventListener("submit",(e)=>{
 
-if(imageInput.files.length !== 4){
+if(imageInput.files.length!==4){
 alert("Upload exactly 4 images.");
 e.preventDefault();
 return;
 }
 
 countdownBox.style.display="block";
+demoWaitVideo.play();
 
 let t=120;
 
@@ -326,10 +406,9 @@ const id=propertyForm.id.value;
 const title=propertyForm.title.value;
 const location=propertyForm.location.value;
 
-/* 🔧 CLEAN SLUG FUNCTION */
+/* 🔧 CLEAN SLUG */
 function cleanSlug(text){
-return text
-.toLowerCase()
+return text.toLowerCase()
 .replace(/[^a-z0-9]+/g,'-')
 .replace(/-+/g,'-')
 .replace(/^-|-$/g,'');
@@ -353,6 +432,11 @@ previewBox.style.display="block";
 },1000);
 
 });
+
+/* WAIT VIDEO SOUND */
+waitSoundToggle.onclick=()=>{
+demoWaitVideo.muted=!demoWaitVideo.muted;
+};
 
 /* DOUBLE TAP ZOOM BLOCK */
 let lastTouchEnd=0;
