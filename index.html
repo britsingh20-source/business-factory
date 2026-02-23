@@ -205,10 +205,23 @@ font-weight:600
 <button id="soundToggle">🔊 Tap for Sound</button>
 </section>
 
+<!-- PROBLEM SECTION -->
+<section class="section">
+<h2>Still Doing Everything Manually?</h2>
+<div class="grid">
+<div class="card">Posting Content Manually Every Day?</div>
+<div class="card">Following Up Leads One by One?</div>
+<div class="card">Struggling to Convert WhatsApp Inquiries?</div>
+<div class="card">No Proper System for Scaling?</div>
+</div>
+<p style="text-align:center;margin-top:40px;font-size:20px;color:#facc15;font-weight:600">
+It’s Time To Replace Hard Work With Smart Automation.
+</p>
+</section>
+
 <!-- PRICING -->
 <section class="section">
 <h2>Choose Your Zoom Training</h2>
-
 <div class="pricing-grid">
 
 <div class="price-card">
@@ -218,12 +231,7 @@ font-weight:600
 Automatic Webpage Creation<br>
 Automatic WhatsApp Follow-up
 </p>
-
-<a class="pay-btn"
-href="https://rzp.io/rzp/1Qb6vrBc"
-target="_blank">
-Pay ₹499
-</a>
+<a class="pay-btn" href="https://rzp.io/rzp/1Qb6vrBc" target="_blank">Pay ₹499</a>
 </div>
 
 <div class="price-card">
@@ -235,12 +243,7 @@ Automatic WhatsApp Follow-up<br>
 Automatic Title & Description Creation<br>
 Automatic Posting Across Social Media
 </p>
-
-<a class="pay-btn"
-href="https://rzp.io/rzp/5Jk0Hzmi"
-target="_blank">
-Pay ₹999
-</a>
+<a class="pay-btn" href="https://rzp.io/rzp/5Jk0Hzmi" target="_blank">Pay ₹999</a>
 </div>
 
 </div>
@@ -259,6 +262,22 @@ Pay ₹999
 </div>
 </section>
 
+<!-- TRANSFORMATION -->
+<section class="section">
+<h2>What Happens After This Training?</h2>
+<div class="grid">
+<div class="card">✔ Automated Lead Capture System</div>
+<div class="card">✔ Auto WhatsApp Follow-ups</div>
+<div class="card">✔ AI Content Creation Engine</div>
+<div class="card">✔ 24/7 Automated Sales Funnel</div>
+<div class="card">✔ Fully Automated Business Backend</div>
+<div class="card">✔ Scale Without Hiring Team</div>
+</div>
+<p style="text-align:center;margin-top:40px;font-size:22px;font-weight:700;color:#facc15">
+Build Once. Earn Automatically.
+</p>
+</section>
+
 <!-- PROFILE -->
 <section class="section">
 <h2>Meet Your Host</h2>
@@ -268,6 +287,68 @@ Bright Singh.S — 2+ Years Building AI Automation Systems.
 </p>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="section">
+<h2>What Students Are Saying</h2>
+<div class="grid">
+<div class="card">
+⭐⭐⭐⭐⭐ <br><br>
+"I automated my real estate leads within 3 days. Now WhatsApp replies automatically!"  
+<br><br><strong>- Raj Kumar</strong>
+</div>
+
+<div class="card">
+⭐⭐⭐⭐⭐ <br><br>
+"Best ₹499 I ever invested. My social media posts are fully automated now."  
+<br><br><strong>- Priya S</strong>
+</div>
+
+<div class="card">
+⭐⭐⭐⭐⭐ <br><br>
+"I closed 4 clients using the automation system taught in this training."  
+<br><br><strong>- Arjun M</strong>
+</div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+<h2>Frequently Asked Questions</h2>
+<div class="grid">
+<div class="card">
+<strong>Is this beginner friendly?</strong><br><br>
+Yes. Step-by-step live explanation. No technical knowledge required.
+</div>
+<div class="card">
+<strong>Will I get recording?</strong><br><br>
+Yes. Recording access will be provided.
+</div>
+<div class="card">
+<strong>Is there any hidden cost?</strong><br><br>
+No hidden costs. Tools used are either free or optional upgrades.
+</div>
+<div class="card">
+<strong>How long is the training?</strong><br><br>
+Approximately 2–3 hours live Zoom session.
+</div>
+</div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section" style="text-align:center">
+<h2 style="color:#facc15">Only 10 Seats Available</h2>
+<p style="margin-top:20px;font-size:20px">
+Once seats are filled, registration closes.
+</p>
+<a href="https://rzp.io/rzp/5Jk0Hzmi" target="_blank"
+style="display:inline-block;margin-top:30px;padding:18px 40px;
+background:linear-gradient(90deg,#facc15,#fde68a);
+color:#111;font-weight:700;border-radius:12px;
+box-shadow:0 0 30px #facc15;text-decoration:none;">
+Secure Your Spot Now
+</a>
+</section>
+
 <!-- STICKY -->
 <div class="sticky">
 <a href="https://rzp.io/rzp/1Qb6vrBc" target="_blank">Join ₹499</a>
@@ -275,11 +356,7 @@ Bright Singh.S — 2+ Years Building AI Automation Systems.
 </div>
 
 <script>
-const flashText = document.getElementById("flashText");
-const soundToggle = document.getElementById("soundToggle");
-const bannerVideo = document.getElementById("bannerVideo");
 
-/* PARTICLES */
 particlesJS("particles-js",{
 particles:{
 number:{value:60},
@@ -289,19 +366,22 @@ line_linked:{enable:true}
 }
 });
 
-/* FLASH ROTATE */
+const flashText = document.getElementById("flashText");
+const soundToggle = document.getElementById("soundToggle");
+const bannerVideo = document.getElementById("bannerVideo");
+
 const flashItems=[
 "28th February",
 "10 Slots Only",
-"Avail Yours"
+"Enroll Before Price Increases"
 ];
+
 let i=0;
 setInterval(()=>{
 i=(i+1)%flashItems.length;
 flashText.innerText=flashItems[i];
 },1500);
 
-/* SOUND TOGGLE */
 soundToggle.onclick=()=>{
 bannerVideo.muted=!bannerVideo.muted;
 bannerVideo.play();
@@ -311,7 +391,6 @@ bannerVideo.muted?
 "🔇 Tap to Mute";
 };
 
-/* AUTO PAUSE VIDEO ON SCROLL */
 const observer=new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -322,9 +401,8 @@ bannerVideo.pause();
 });
 },{threshold:.3});
 
-observer.observe(
-document.getElementById("bannerSection")
-);
+observer.observe(document.getElementById("bannerSection"));
+
 </script>
 
 </body>
