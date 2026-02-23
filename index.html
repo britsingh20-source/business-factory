@@ -1,330 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0,
-maximum-scale=1.0, minimum-scale=1.0,
-user-scalable=no">
-
-<title>Businessfactory Automation Event</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Your Automated Business System</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins}
-
-body{
-background:#020617;
-color:white;
-overflow-x:hidden;
-padding-bottom:120px
+body{background:#020617;color:#fff;overflow-x:hidden}
+.section{padding:80px 20px;max-width:1100px;margin:auto}
+h1,h2,h3{text-align:center}
+h1{font-size:42px;line-height:1.3}
+h2{font-size:32px;margin-bottom:40px}
+p{line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
+.card{
+background:#0f172a;
+padding:30px;
+border-radius:16px;
+transition:.3s;
+border:1px solid #1e293b
 }
-
-html,body{
-touch-action:pan-y;
-overscroll-behavior:none;
-}
-
-input,textarea,select{font-size:16}
-
-/* FLASH */
-.flash-text{
-text-align:center;
-font-weight:700;
-font-size:18px;
-color:#facc15;
-padding:12px 0;
-animation:flash 1.2s infinite;
-}
-@keyframes flash{
-0%,100%{opacity:1}
-50%{opacity:.2}
-}
-
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-2
-}
-
-/* SECTIONS */
-.section{
-padding:90px 20px;
-max-width:1200px;
-margin:auto
-}
-.section h2{
-text-align:center;
-font-size:36px;
-margin-bottom:50px
-}
-
-/* BANNER */
-.banner{
-position:relative;
-height:100vh
-}
-.banner video{
-position:absolute;
-width:100%;
-height:100%;
-object-fit:cover;
-filter:brightness(.35)
-}
-.banner-content{
-position:relative;
-z-index:2;
-text-align:center;
-top:40%
-}
-.banner h1{
-font-size:48px;
-background:linear-gradient(90deg,#fff,#facc15);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent
-}
-
-#soundToggle{
-position:absolute;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
+.card:hover{transform:translateY(-5px);border-color:#facc15}
+.highlight{color:#facc15}
+.cta-btn{
+display:inline-block;
 background:linear-gradient(90deg,#facc15,#fde68a);
 color:#111;
-border:none;
-padding:14px 26px;
-border-radius:40px;
+padding:16px 40px;
+border-radius:10px;
 font-weight:700;
-cursor:pointer;
-box-shadow:0 0 20px #facc15;
-z-index:5
-}
-
-/* PRICING */
-.pricing-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:30px
+text-decoration:none;
+margin-top:30px
 }
 .price-card{
 background:linear-gradient(145deg,#3b2f00,#ffd700,#3b2f00);
+color:#111;
 padding:40px;
-border-radius:22px;
-box-shadow:0 0 40px #ffd700;
-text-align:center
+border-radius:20px;
+text-align:center;
+box-shadow:0 0 40px #ffd700
 }
-.price{
-font-size:48px;
-color:#111;
-font-weight:700
-}
-.pay-btn{
-display:inline-block;
-margin-top:18px;
-padding:14px 28px;
-background:white;
-color:#111;
-border-radius:10px;
-text-decoration:none;
-font-weight:700;
-box-shadow:0 0 20px #fff
-}
-
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px
-}
-.card{
-background:#111827;
-padding:30px;
-border-radius:18px;
-transition:.4s
-}
-.card:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px #facc15
-}
-
-/* PROFILE */
-.profile-img{
-width:260px;
-border-radius:16px;
-display:block;
-margin:auto
-}
-
-/* STICKY */
-.sticky{
-position:fixed;
-bottom:0;
-width:100%;
-background:#020617;
-padding:12px;
-display:flex;
-justify-content:center;
-gap:14px;
-flex-wrap:wrap
-}
-.sticky a{
-background:linear-gradient(90deg,#facc15,#fde68a);
-padding:14px 26px;
-border-radius:10px;
-text-decoration:none;
-color:#111;
-font-weight:600
-}
+.small{font-size:14px;opacity:.8;margin-top:10px}
+.countdown{font-size:24px;margin-top:15px;color:#facc15}
 </style>
 </head>
 
 <body>
 
-<div class="flash-text" id="flashText">
-28th February
-</div>
-
-<div id="particles-js"></div>
-
-<!-- BANNER -->
-<section class="banner" id="bannerSection">
-
-<video id="bannerVideo" autoplay muted loop playsinline>
-<source src="banner-video.mp4">
-</video>
-
-<div class="banner-content">
-<h1>Fully Automated Business System Live Zoom Training</h1>
-</div>
-
-<button id="soundToggle">🔊 Tap for Sound</button>
-</section>
-
-<!-- PRICING -->
+<!-- HERO -->
 <section class="section">
-<h2>Choose Your Zoom Training</h2>
+<h1>
+Build a <span class="highlight">Fully Automated Business System</span><br>
+In Just 2 Hours — Even If You’re Starting From Zero
+</h1>
 
-<div class="pricing-grid">
-
-<div class="price-card">
-<h3>Starter Automation Training</h3>
-<div class="price">₹499</div>
-<p>
-Automatic Webpage Creation<br>
-Automatic WhatsApp Follow-up
-</p>
-
-<a class="pay-btn"
-href="https://rzp.io/rzp/1Qb6vrBc"
-target="_blank">
-Pay ₹499
-</a>
-</div>
-
-<div class="price-card">
-<h3>Advanced Automation Training</h3>
-<div class="price">₹999</div>
-<p>
-Automatic Webpage Creation<br>
-Automatic WhatsApp Follow-up<br>
-Automatic Title & Description Creation<br>
-Automatic Posting Across Social Media
-</p>
-
-<a class="pay-btn"
-href="https://rzp.io/rzp/5Jk0Hzmi"
-target="_blank">
-Pay ₹999
-</a>
-</div>
-
-</div>
-</section>
-
-<!-- COURSE -->
-<section class="section">
-<h2>What You’ll Learn</h2>
-<div class="grid">
-<div class="card">Business Automation Foundations</div>
-<div class="card">Lead Generation Systems</div>
-<div class="card">Auto Content Engines</div>
-<div class="card">AI Conversion Systems</div>
-<div class="card">WhatsApp & Web Automation</div>
-<div class="card">Agency Scaling Blueprint</div>
-</div>
-</section>
-
-<!-- PROFILE -->
-<section class="section">
-<h2>Meet Your Host</h2>
-<img src="profile (2).jpg" class="profile-img">
 <p style="text-align:center;margin-top:20px">
-Bright Singh.S — 2+ Years Building AI Automation Systems.
+Live Zoom Training on 28th February
+</p>
+
+<div style="text-align:center">
+<a href="https://rzp.io/rzp/1Qb6vrBc" class="cta-btn">Reserve My Seat Now</a>
+</div>
+
+<div class="countdown" id="countdown"></div>
+</section>
+
+<!-- PAIN SECTION -->
+<section class="section">
+<h2>Are You Facing This?</h2>
+<div class="grid">
+<div class="card">❌ No consistent lead generation system</div>
+<div class="card">❌ Manually replying to every WhatsApp message</div>
+<div class="card">❌ No follow-up automation</div>
+<div class="card">❌ Running ads but no conversion system</div>
+</div>
+</section>
+
+<!-- PROMISE -->
+<section class="section">
+<h2>What You’ll Build Live</h2>
+<div class="grid">
+<div class="card">✅ Automated Lead Capture Page</div>
+<div class="card">✅ WhatsApp Auto Follow-up System</div>
+<div class="card">✅ AI Content Generator</div>
+<div class="card">✅ Social Media Auto Posting Engine</div>
+</div>
+</section>
+
+<!-- AUTHORITY -->
+<section class="section">
+<h2>Your Host</h2>
+<p style="text-align:center">
+Bright Singh — Built 50+ Automation Funnels & Helped Businesses Generate 1000+ Leads Using AI Systems.
 </p>
 </section>
 
-<!-- STICKY -->
-<div class="sticky">
-<a href="https://rzp.io/rzp/1Qb6vrBc" target="_blank">Join ₹499</a>
-<a href="https://rzp.io/rzp/5Jk0Hzmi" target="_blank">Join ₹999</a>
+<!-- SOCIAL PROOF -->
+<section class="section">
+<h2>What People Say</h2>
+<div class="grid">
+<div class="card">"Saved me 4 hours daily." – Rahul</div>
+<div class="card">"Generated 120 leads in 7 days." – Karthik</div>
+<div class="card">"Best ₹499 investment." – Arjun</div>
 </div>
+</section>
+
+<!-- OFFER -->
+<section class="section">
+<h2>Choose Your Access</h2>
+
+<div class="grid">
+
+<div class="price-card">
+<h3>Starter Access</h3>
+<p style="text-decoration:line-through">Worth ₹4,999</p>
+<h2>₹499</h2>
+<p>Live Training + Automation Blueprint</p>
+<a href="https://rzp.io/rzp/1Qb6vrBc" class="cta-btn">Join ₹499</a>
+</div>
+
+<div class="price-card">
+<h3>Advanced Access</h3>
+<p style="text-decoration:line-through">Worth ₹9,999</p>
+<h2>₹999</h2>
+<p>Everything + AI Posting Engine + Templates</p>
+<a href="https://rzp.io/rzp/5Jk0Hzmi" class="cta-btn">Join ₹999</a>
+</div>
+
+</div>
+
+<p class="small" style="text-align:center">
+Limited to 10 seats only. Price increases after event.
+</p>
+</section>
+
+<!-- RISK REVERSAL -->
+<section class="section">
+<h2>Zero Risk</h2>
+<p style="text-align:center">
+Attend the training. If you feel it’s not valuable, message us within 24 hours.
+</p>
+</section>
 
 <script>
-const flashText = document.getElementById("flashText");
-const soundToggle = document.getElementById("soundToggle");
-const bannerVideo = document.getElementById("bannerVideo");
+// Countdown Timer
+const countdown=document.getElementById("countdown");
+const eventDate=new Date("February 28, 2026 20:00:00").getTime();
 
-/* PARTICLES */
-particlesJS("particles-js",{
-particles:{
-number:{value:60},
-size:{value:3},
-move:{speed:1},
-line_linked:{enable:true}
-}
-});
-
-/* FLASH ROTATE */
-const flashItems=[
-"28th February",
-"10 Slots Only",
-"Avail Yours"
-];
-let i=0;
 setInterval(()=>{
-i=(i+1)%flashItems.length;
-flashText.innerText=flashItems[i];
-},1500);
+const now=new Date().getTime();
+const distance=eventDate-now;
 
-/* SOUND TOGGLE */
-soundToggle.onclick=()=>{
-bannerVideo.muted=!bannerVideo.muted;
-bannerVideo.play();
-soundToggle.innerText=
-bannerVideo.muted?
-"🔊 Tap for Sound":
-"🔇 Tap to Mute";
-};
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
 
-/* AUTO PAUSE VIDEO ON SCROLL */
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-bannerVideo.play();
-}else{
-bannerVideo.pause();
-}
-});
-},{threshold:.3});
+countdown.innerHTML="Offer Ends In: "+days+"d "+hours+"h "+minutes+"m";
 
-observer.observe(
-document.getElementById("bannerSection")
-);
+},1000);
 </script>
 
 </body>
